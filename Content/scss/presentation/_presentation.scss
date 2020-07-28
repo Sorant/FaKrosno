@@ -1,0 +1,26 @@
+.presentation {
+  margin-top: calculateVh(120);
+  min-height: calculateVh(600, 900);
+  background-image: url(../img/main-page-hero-photo.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__crumbs {
+    @include padding($top: 20, $left: 25);
+    text-transform: uppercase;
+    font-family: $title-font;
+
+    a {
+      color: $grey-color;
+    }
+  }
+
+  &__main {
+    margin-top: calculateVh(100, 900);
+
+    &-link {
+      display: inline-block;
+      margin-top: calculateVh(50, 900);
+    }
+  }
+}

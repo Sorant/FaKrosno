@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="bootstrap-grid.min.css.map" />
+  <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+  <link rel="stylesheet" href="Content/css/main.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header id="header-id" class="main-header">
+    <div class="container">
+      <div class="row">
+        <a href="index.html" class="logo">
+          <img src="./logo.svg" alt="Fa Krosno logo" />
+        </a>
+        <div class="col-xs-10 offset-xs-2 col-md-7 offset-md-5">
+          <div id="search-block" class="main-header__search-block" onclick="openSearchMenu(this);">
+            <input type="text" onkeypress="openSearchKeyPress(event);" />
+            <a href="#"><i class="fas fa-search"></i></a>
+          </div>
+          <ul class="main-header__ul">
+            <li class="main-header__li" onclick="listMenuToggle(this);">
+              <a href="#" class="link--uppercase">Produkty</a>
+              <div class="main-header__submenu">
+                <ul class="main-header__submenu-ul">
+                  <li><a href="#">FA-RISE</a></li>
+                  <li><a href="#">FA-BLOCK</a></li>
+                  <li><a href="#">FA-TRACK</a></li>
+                  <li><a href="#">FA-INOX</a></li>
+                  <li><a href="#">FA ABS</a></li>
+                  <li><a href="#">wyszukiwarka</a></li>
+                  <li><a href="#">konfigurator</a></li>
+                  <li><a href="#">mocowania i akcesoria</a></li>
+                  <li><a href="#">katalogi</a></li>
+                  <li><a href="#">informacje techniczne</a></li>
+                  <li><a href="#">usługi</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="main-header__li" onclick="listMenuToggle(this);">
+              <a href="#" class="link--uppercase">O firmie</a>
+            </li>
+            <li class="main-header__li" onclick="listMenuToggle(this);">
+              <a href="#" class="link--uppercase">Kariera</a>
+            </li>
+            <li class="main-header__li" onclick="listMenuToggle(this);">
+              <a href="#" class="link--uppercase">Kontakt</a>
+            </li>
+            <li class="main-header__li">
+              <div class="main-header__languages-block">
+                <a href="#" class="link--uppercase">Pl</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="presentation">
+    <div class="container">
+      <div class="row">
+        <div class="col-11 offset-1">
+          <ul class="presentation__crumbs">
+            <li><a href="#">
+                <h5>strona główna H5</h5>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row animated-block">
+        <div class="col-xs-12 col-md-5 offset-md-1">
+          <div class="presentation__main">
+            <h1 class="main-title">Sprężyny gazowe H1</h1>
+            <h2 class="main-subtitle">Polski producent h2</h2>
+            <p class="text">
+              H3 - Lorem ipsum dolor sit amet, consectetu adipisicing elit,
+              sed do eiusmod tempor incid Lorem igdfhf psum dolor sit amet,
+              coboris nisi ut aliquip ex ea commod lorem doo.
+            </p>
+            <a href="#" class="btn presentation__main-link" data-text="dowiedz się więcej"><span
+                class="btn-text">dowiedz się więcej</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="categories">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <h4 class="subtitle subtitle--sm categories__title">
+            sprężyny do pierwszej zabudowy H4
+          </h4>
+          <p class="text categories__text">
+            H3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+            do eiusmod tempor incid
+          </p>
+          <a href="#" class="categories__link">dowiedz się więcej H5
+            <span class="categories__link-arrow-wrapper"><i
+                class="categories__link-arrow-icon fas fa-chevron-down"></i></span></a>
+        </div>
+        <div class="col-xs-12 col-md-3 offset-md-1">
+          <h4 class="subtitle subtitle--sm categories__title">
+            sprężyny przemysłowe H4
+          </h4>
+          <p class="text categories__text">
+            H3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+            do eiusmod tempor incid
+          </p>
+          <a href="#" class="categories__link">katalog
+
+            <span class="categories__link-arrow-wrapper"><i
+                class="categories__link-arrow-icon fas fa-chevron-down"></i></span></a>
+          <a href="#" class="categories__link">katalog
+
+            <span class="categories__link-arrow-wrapper"><i
+                class="categories__link-arrow-icon fas fa-chevron-down"></i></span></a>
+        </div>
+        <div class="col-xs-12 col-md-3 offset-md-1">
+          <h4 class="subtitle subtitle--sm categories__title">
+            części zamienne H4
+          </h4>
+          <p class="text categories__text">
+            H3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+            do eiusmod tempor incid
+          </p>
+          <a href="#" class="categories__link">samochody osobowe
+            <span class="categories__link-arrow-wrapper"><i
+                class="categories__link-arrow-icon fas fa-chevron-down"></i></span></a>
+          <a href="#" class="categories__link">rolnicze i budowlane
+            <span class="categories__link-arrow-wrapper"><i
+                class="categories__link-arrow-icon fas fa-chevron-down"></i></span></a>
+          <a href="#" class="categories__link">ciężarówki i autobusy
+            <span class="categories__link-arrow-wrapper"><i
+                class="categories__link-arrow-icon fas fa-chevron-down"></i></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="info">
+    <div class="container">
+      <div class="info__wrapper">
+        <div class="row">
+          <div class="col-xs-11 col-md-4 offset-1">
+            <h2 class="title info__wrapper-title">
+              <span class="title--accent-color">fa krosno</span> <br> - od początku... H2
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-11 col-md-6 offset-1">
+            <p class="text">
+              H3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+              et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure nderit in voluptate velit esse dffcillum dolore.
+              </br>
+              </br>
+              quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+              voluptatem. Equi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit, sed qs modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            </p>
+            <a href="#" class="info__wrapper-btn btn">dowiedz się więcej</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="frequently-searched">
+    <div class="container">
+      <div class="row">
+        <div class="col-11 offset-1">
+          <h3 class="title">najczęściej wyszukiwane: h2</h3>
+        </div>
+      </div>
+      <div class="row">
+        <a href="#" class="col-xs-12 col-md-4 frequently-searched__elem">
+          <h4 class="subtitle frequently-searched-title">katalogi</h4>
+        </a>
+        <a href="#" class="col-xs-12 col-md-4 frequently-searched__elem">
+          <h4 class="subtitle frequently-searched-title">produkty</h4>
+        </a>
+        <a href="#" class="col-xs-12 col-md-4 frequently-searched__elem">
+          <h4 class="subtitle frequently-searched-title">oferty pracy</h4>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="fields">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-11 col-md-11 offset-1">
+          <h2 class="title fields-title">branże w jakich jesteśmy: H2</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-11 col-md-8 offset-1">
+          <p class="text fields-description">H3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure nderit in voluptate velit esse cillum
+            dolore.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+          <div class="row fields-row">
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/car-field.png" alt="car field">
+                <h6 class="fields__elem-title text text-title">samochodowa</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/factory-field.png" alt="factory field">
+                <h6 class="fields__elem-title text text-title">przemysłowa</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/farmer-field.png" alt="farmer field">
+                <h6 class="fields__elem-title text text-title">rolnicza</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/building-field.png" alt="building field">
+                <h6 class="fields__elem-title text text-title">budowlana</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/medical-field.png" alt="medical field">
+                <h6 class="fields__elem-title text text-title">medyczna
+                  i rehabilitacyjna</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/furniture-field.png" alt="furniture field">
+                <h6 class="fields__elem-title text text-title">meblarska</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/transport-field.png" alt="transport field">
+                <h6 class="fields__elem-title text text-title">transportowa
+                  i komunikacyjna</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/caravanging-field.png" alt="caravanging field">
+                <h6 class="fields__elem-title text text-title">caravaning</h6>
+              </div>
+            </div>
+            <div class="fields__elem">
+              <div class="fields__elem-icon">
+                <img src="./Content/img/icons/yachting-field.png" alt="yachting field">
+                <h6 class="fields__elem-title text text-title">yachting</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="Content/js/index.js"></script>
+
+</html>

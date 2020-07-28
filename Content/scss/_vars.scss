@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&family=Roboto+Condensed&display=swap');
+
+$bodyFs: 13;
+$title-font: 'Montserrat',
+Arial,
+sans-serif;
+$font: 'Roboto Condensed',
+Arial,
+sans-serif;
+$black-color: #000;
+$white-color: #fff;
+$grey-color: #939598;
+$accent-color: #b12009;
+
+@import 'mixins.scss';
+@import 'extends.scss';

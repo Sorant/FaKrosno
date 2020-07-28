@@ -1,0 +1,125 @@
+.main-title {
+  @include font($title-font, 900, 60, $accent-color);
+  text-transform: uppercase;
+}
+
+.main-subtitle {
+  @include font($title-font, 300, 35, $black-color);
+  @include padding(null, true, 34, 0, 34, 0);
+  text-transform: uppercase;
+}
+
+.title {
+  @include font($title-font, 300, 35, $black-color);
+  @include margin($top: 100, $bottom: 40);
+  text-transform: uppercase;
+
+  &--accent-color {
+    color: $accent-color;
+  }
+}
+
+.subtitle {
+  @include font($title-font, 900, 24, $accent-color);
+  text-transform: uppercase;
+
+  &--sm {
+    @include font($title-font, 900, 18, $black-color);
+    @include margin($bottom: 30);
+  }
+}
+
+.text {
+  @include font($font, 400, 13, $black-color);
+  line-height: calculateRem(22.5);
+
+  &--accent {
+    color: $accent-color;
+  }
+
+  &-title {
+    @include font($title-font, 700);
+    text-transform: uppercase;
+  }
+}
+
+.link {
+  @include basic-animation;
+  @include font($title-font, 400, 13, $grey-color);
+  position: relative;
+
+  &::before {
+    @include pseudo;
+    @include basic-animation;
+    @include position(absolute, 10, 10, $z-index: -1);
+    width: 100%;
+    height: 100%;
+    transform: scale(0.9);
+    background-color: $accent-color;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:active,
+  &.active {
+    color: $white-color;
+    font-weight: 600;
+
+    &::before {
+      top: 0;
+      left: 0;
+      opacity: 1;
+      transform: scaleX(1.2) scaleY(2.1);
+      border-radius: calculateRem(2);
+      color: $white-color;
+    }
+  }
+}
+
+.link--uppercase {
+  @extend .link;
+  text-transform: uppercase;
+}
+
+.btn {
+  @include padding(null, true, 12, 23, 12, 23);
+  @include font($title-font, 900, 13, $white-color);
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: $accent-color;
+
+  &-text {
+    @include basic-animation;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.btn {
+  $btn-color: $accent-color;
+  $btn-color-dark: #222;
+  color: tint($btn-color);
+
+  span {
+    // @include absolute();
+    display: block;
+    // @include size(0);
+    border-radius: 50%;
+    background-color: $btn-color-dark;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  &:hover {
+    // color: tint($btn-color, 75%);
+
+    span {
+      // @include size(225%, $btn-width*2.25);
+    }
+  }
+
+  &:active {
+    background-color: $btn-color;
+  }
+}

@@ -1,0 +1,53 @@
+.frequently-searched {
+  @include flex;
+
+  &__elem {
+    @include flex(center, center);
+    cursor: pointer;
+    padding: 0;
+    height: calculateVh(400, 900);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:first-of-type {
+      background-image: url(../img/main-page-frequently-searched-catalogs.jpg);
+    }
+
+    &:nth-of-type(2) {
+      background-image: url(../img/main-page-frequently-searched-products.jpg);
+    }
+
+    &:nth-of-type(3) {
+      background-image: url(../img/main-page-frequently-searched-job-offers.jpg);
+    }
+
+    &:hover,
+    &:focus {
+      .frequently-searched-title {
+        &::before {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  &-title {
+    @include padding($top: 26, $bottom: 26);
+    @include position(relative, $z-index: 1);
+    width: 100%;
+    text-align: center;
+
+    &::before {
+      @include pseudo;
+      @include basic-animation;
+      @include padding($top: 26, $bottom: 26);
+      @include position_center(absolute, false, true, -1);
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $white-color;
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.fields {
+  &-description {
+    @include margin($bottom: 35);
+  }
+
+  &__elem {
+    @include margin($bottom: 30);
+    width: calc(170 * 100% / 1010);
+    text-align: center;
+
+    &-title {
+      @include margin($top: 18);
+    }
+  }
+
+  &-row {
+    @include flex(center, null, wrap);
+  }
+}
+
+@import '_media.scss';

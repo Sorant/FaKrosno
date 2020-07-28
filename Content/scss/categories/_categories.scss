@@ -1,0 +1,39 @@
+.categories {
+  @include padding($top: 96, $bottom: 125);
+
+  &__title,
+  &__text {
+    text-align: center;
+  }
+
+  &__text {
+    @include margin($bottom: 40);
+  }
+
+  &__link {
+    @include flex(center, center);
+    text-transform: uppercase;
+    color: $grey-color;
+    font-family: $title-font;
+
+    &-arrow-wrapper {
+      @include boxSize(17, 17);
+      @include margin($left: 7);
+      display: block;
+      background-color: $accent-color;
+      border-radius: 20px;
+    }
+
+    &-arrow-icon {
+      @include flex;
+      transform: rotate(-90deg);
+      margin-top: -1px;
+      color: $white-color;
+      font-size: calculateRem(9);
+    }
+
+    &:not(:first-of-type) {
+      @include margin($top: 20);
+    }
+  }
+}
