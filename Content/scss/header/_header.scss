@@ -1,4 +1,5 @@
 .main-header {
+  @include basic-animation;
   @include position(fixed, 0, 0, 0, null, 999);
 
   .logo {
@@ -44,6 +45,7 @@
   }
 
   &__li {
+    @include basic-animation(.12s);
     @include margin($right: 5);
     position: relative;
 
@@ -124,7 +126,7 @@
 
       &:hover,
       &:focus {
-        border-color: rgba(229, 115, 115, .4);
+        border-color: $accent-color_darker;
       }
     }
 
@@ -178,4 +180,82 @@
   &__ul {
     @include flex(space-between, center, wrap);
   }
+
+  .burger {
+    @include boxSize(50);
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      @include basic-animation;
+      display: block;
+      width: 80%;
+      height: calculateRem(3);
+      border-radius: calculateRem(5);
+      background-color: $grey-color;
+
+      &:not(:first-of-type) {
+        @include margin($top: 5);
+      }
+    }
+
+    &__circle {
+      @include basic-animation(.8s);
+      @include boxSize(42, 42);
+      @include position_center(absolute, true, true, -1);
+      border-radius: calculateRem(30);
+
+      &::before {
+        @include pseudo;
+        @include basic-animation(.6s);
+        @include position(absolute, $z-index: -1);
+        width: 100%;
+        height: 100%;
+        top: -50%;
+        left: 50%;
+        transition-delay: .7s;
+        background-color: $white-color;
+      }
+    }
+
+    &--active {
+      li {
+
+        background-color: $accent-color_darker;
+
+        &:first-of-type {
+          transform: rotate(45deg);
+        }
+
+        &:nth-of-type(2) {
+          width: 0;
+        }
+
+        &:nth-of-type(3) {
+          @include margin($top: -11);
+          transform: rotate(-45deg);
+        }
+      }
+
+      .burger__circle {
+        border: calculateRem(4) solid $accent-color_darker;
+        transform: translate(-50%, -50%) rotate(360deg);
+
+        &::before {
+          transform: rotate(180deg);
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  &--active,
+  &--active.fixed {
+    box-shadow: 0 0 0 100vh $white-color;
+  }
 }
+
+@import './media';

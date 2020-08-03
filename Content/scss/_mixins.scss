@@ -445,17 +445,19 @@ $border-radius: calculateRem(3);
   transform: rotateX(0deg);
 }
 
-@mixin fade($type) {
+@mixin fade($type, $animation-duration: .2s, $animation-delay: initial) {
   @if ($type=='hide') {
-    @include basic-animation;
+    @include basic-animation($animation-duration);
     opacity: 0;
     visibility: hidden;
+    transition-delay: $animation-delay;
   }
 
   @else if($type=='show') {
-    @include basic-animation;
+    @include basic-animation($animation-duration);
     opacity: 1;
     visibility: visible;
+    transition-delay: $animation-delay;
   }
 }
 

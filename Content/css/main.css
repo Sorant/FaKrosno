@@ -141,7 +141,8 @@ table {
   border-spacing: 0; }
 
 html {
-  font-size: 81.25%; }
+  font-size: 81.25%;
+  overflow-x: hidden; }
 
 body {
   overflow-x: hidden;
@@ -192,15 +193,14 @@ a {
 .relative {
   position: relative; }
 
-.animated-block {
+.animated-container__block {
   transition: all 0.6s ease-in-out; }
-  .animated-block--left {
-    transform: translate(-100vw, -10vh); }
-  .animated-block--right {
-    transform: translate(100vw, -10vh); }
-  .animated-block--finished {
-    transition: all 0.6s ease-in-out;
-    transform: translate(0, 0); }
+  .animated-container__block--left {
+    transform: translate(-50vw, -10vh) rotateX(90deg); }
+  .animated-container__block--right {
+    transform: translate(50vw, -10vh) rotateX(90deg); }
+  .animated-container__block--finished {
+    transform: translate(0, 0) rotateX(0); }
 
 .main-title {
   font: 900 4.61538rem/1 "Montserrat", Arial, sans-serif;
@@ -277,27 +277,38 @@ a {
   padding: 0.92308rem 1.76923rem 0.92308rem 1.76923rem;
   font: 900 1rem/1 "Montserrat", Arial, sans-serif;
   color: #fff;
+  position: relative;
   display: inline-block;
   text-transform: uppercase;
-  background-color: #b12009; }
-  .btn-text {
-    transition: all 0.2s ease-in-out;
-    position: relative;
-    z-index: 1; }
-
-.btn {
-  color: tint(#b12009); }
-  .btn span {
+  color: #fff;
+  line-height: 1rem; }
+  .btn::before, .btn::after {
+    transition: all .3s linear;
+    content: attr(data-text);
     display: block;
-    border-radius: 50%;
-    background-color: #222;
-    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-    transform: translate(-50%, -50%);
-    z-index: -1; }
-  .btn:active {
-    background-color: #b12009; }
+    padding: 0.92308rem 1.76923rem 0.92308rem 1.76923rem; }
+  .btn::before {
+    position: relative;
+    transform: translateY(0) rotateX(0);
+    background-color: #b12009;
+    opacity: 1;
+    line-height: 1rem; }
+  .btn::after {
+    position: absolute;
+    top: 0;
+    transform: translateY(50%) rotateX(90deg);
+    background-color: #961703;
+    opacity: 0; }
+  .btn:hover::before, .btn:focus::before, .btn:active::before {
+    transform: translateY(-50%) rotateX(90deg);
+    opacity: 0; }
+  .btn:hover::after, .btn:focus::after, .btn:active::after {
+    top: 50%;
+    transform: translateY(-50%) rotateX(0);
+    opacity: 1; }
 
 .main-header {
+  transition: all 0.2s ease-in-out;
   position: fixed;
   top: 0;
   left: 0;
@@ -335,6 +346,7 @@ a {
       height: 6.92308rem;
       max-width: 6.15385rem; }
   .main-header__li {
+    transition: all 0.12s ease-in-out;
     margin-right: 0.38462rem;
     position: relative; }
     .main-header__li:first-of-type, .main-header__li:nth-of-type(2), .main-header__li:nth-of-type(3), .main-header__li:nth-of-type(4) {
@@ -395,7 +407,7 @@ a {
       border-radius: 1.53846rem;
       border: 2px solid transparent; }
       .main-header__search-block input:hover, .main-header__search-block input:focus {
-        border-color: rgba(229, 115, 115, 0.4); }
+        border-color: #961703; }
     .main-header__search-block a {
       transition: all 0.2s ease-in-out;
       position: absolute;
@@ -419,6 +431,97 @@ a {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap; }
+  .main-header .burger {
+    width: 3.84615rem;
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center; }
+    .main-header .burger li {
+      transition: all 0.2s ease-in-out;
+      display: block;
+      width: 80%;
+      height: 0.23077rem;
+      border-radius: 0.38462rem;
+      background-color: #939598; }
+      .main-header .burger li:not(:first-of-type) {
+        margin-top: 0.38462rem; }
+    .main-header .burger__circle {
+      transition: all 0.8s ease-in-out;
+      width: 3.23077rem;
+      height: 3.23077rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      border-radius: 2.30769rem; }
+      .main-header .burger__circle::before {
+        content: "";
+        display: block;
+        transition: all 0.6s ease-in-out;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: -50%;
+        left: 50%;
+        transition-delay: .7s;
+        background-color: #fff; }
+    .main-header .burger--active li {
+      background-color: #961703; }
+      .main-header .burger--active li:first-of-type {
+        transform: rotate(45deg); }
+      .main-header .burger--active li:nth-of-type(2) {
+        width: 0; }
+      .main-header .burger--active li:nth-of-type(3) {
+        margin-top: -0.84615rem;
+        transform: rotate(-45deg); }
+    .main-header .burger--active .burger__circle {
+      border: 0.30769rem solid #961703;
+      transform: translate(-50%, -50%) rotate(360deg); }
+      .main-header .burger--active .burger__circle::before {
+        transform: rotate(180deg);
+        opacity: 0;
+        visibility: hidden; }
+  .main-header--active, .main-header--active.fixed {
+    box-shadow: 0 0 0 100vh #fff; }
+
+@media (max-width: 575.98px) {
+  .main-header {
+    background-color: #fff; }
+    .main-header .logo {
+      position: initial;
+      height: auto; }
+    .main-header .burger {
+      display: flex; }
+    .main-header__content {
+      transition: all 0.8s ease-in-out;
+      height: 0;
+      overflow: hidden;
+      transform: rotateX(90deg); }
+      .main-header__content .main-header__search-block,
+      .main-header__content .main-header__ul li {
+        transition: all 0.2s ease-in-out;
+        height: 0;
+        overflow: hidden;
+        transform: rotateX(90deg);
+        transform: translate(-50vw, -10vh) rotateX(90deg); }
+    .main-header__ul {
+      flex-direction: column; }
+    .main-header__li {
+      margin-top: 0.76923rem;
+      margin-right: 0; }
+    .main-header--active .main-header__content {
+      height: 100%;
+      overflow: initial;
+      transform: rotateX(0deg); }
+      .main-header--active .main-header__content .main-header__search-block,
+      .main-header--active .main-header__content .main-header__ul li {
+        height: 100%;
+        overflow: initial;
+        transform: rotateX(0deg);
+        transform: translate(0, 0) rotateX(0); } }
 
 .presentation {
   margin-top: 11.11111vh;

@@ -144,6 +144,7 @@ table {
 
 html {
   font-size: 81.25%;
+  overflow-x: hidden;
 }
 
 body {
@@ -211,19 +212,21 @@ a {
   position: relative;
 }
 
-.animated-block {
-  @include basic-animation(.6s);
-
-  &--left {
-    transform: translate(-100vw, -10vh);
-  }
-
-  &--right {
-    transform: translate(100vw, -10vh);
-  }
-
-  &--finished {
+.animated-container {
+  &__block {
     @include basic-animation(.6s);
-    transform: translate(0, 0);
+    // transition-delay: calc(.1s * var(--index));
+
+    &--left {
+      transform: translate(-50vw, -10vh) rotateX(90deg);
+    }
+
+    &--right {
+      transform: translate(50vw, -10vh) rotateX(90deg);
+    }
+
+    &--finished {
+      transform: translate(0, 0) rotateX(0);
+    }
   }
 }

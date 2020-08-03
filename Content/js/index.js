@@ -22,7 +22,28 @@ const openSearchKeyPress = (e) => {
   }
 }
 
-window.addEventListener('scroll', function () {
+const animateBlocks = () => {
+  const containers = document.querySelectorAll('.animated-container');
+  for (let containerIndex = 0; containerIndex < containers.length; containerIndex++) {
+    const container = containers[containerIndex];
+    const animationBlocks = container.querySelectorAll('.animated-container__block');
+    for (let blockIndex = 0; blockIndex < animationBlocks.length; blockIndex++) {
+      const block = animationBlocks[blockIndex];
+      if (inViewport(block)) {
+        setTimeout(() => {
+          block.classList.add('animated-container__block--finished');
+        }, 10 * containerIndex * blockIndex);
+      }
+      else {
+        setTimeout(() => {
+          block.classList.remove('animated-container__block--finished');
+        }, 10 * containerIndex * blockIndex);
+      }
+    }
+  }
+}
+
+window.addEventListener('scroll', () => {
   const header = document.getElementById('header-id');
   if (pageYOffset > 80) {
     header.classList.add('fixed');
@@ -30,21 +51,20 @@ window.addEventListener('scroll', function () {
   else {
     header.classList.remove('fixed');
   }
+  animateBlocks();
 });
 
-$(function() {  
-  $('.btn-6')
-    .on('mouseenter', function(e) {
-            var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
-    })
-    .on('mouseout', function(e) {
-            var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-        $(this).find('span').css({top:relY, left:relX})
-    });
-  $('[href=#]').click(function(){return false});
+const inViewport = (element) => {
+  const elementProps = element.getBoundingClientRect();
+  return !(elementProps.top > innerHeight || elementProps.bottom < 0);
+}
+
+const mobileMenuHandler = (e) => {
+  const header = document.querySelector('#header-id');
+  e.classList.toggle('burger--active');
+  header.classList.toggle('main-header--active')
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  animateBlocks();
 });

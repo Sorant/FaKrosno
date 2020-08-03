@@ -84,42 +84,82 @@
 .btn {
   @include padding(null, true, 12, 23, 12, 23);
   @include font($title-font, 900, 13, $white-color);
+  position: relative;
   display: inline-block;
   text-transform: uppercase;
-  background-color: $accent-color;
+  color: $white-color;
+  line-height: calculateRem(13);
 
-  &-text {
-    @include basic-animation;
+  &::before,
+  &::after {
+    transition: all .3s linear;
+    @include pseudo(block, attr(data-text));
+    @include padding(null, true, 12, 23, 12, 23);
+  }
+
+  &::before {
     position: relative;
-    z-index: 1;
-  }
-}
-
-.btn {
-  $btn-color: $accent-color;
-  $btn-color-dark: #222;
-  color: tint($btn-color);
-
-  span {
-    // @include absolute();
-    display: block;
-    // @include size(0);
-    border-radius: 50%;
-    background-color: $btn-color-dark;
-    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    transform: translateY(0) rotateX(0);
+    background-color: $accent-color;
+    opacity: 1;
+    line-height: calculateRem(13);
   }
 
-  &:hover {
-    // color: tint($btn-color, 75%);
+  &::after {
+    @include position(absolute, 0);
+    transform: translateY(50%) rotateX(90deg);
+    background-color: $accent-color_darker;
+    opacity: 0;
+  }
 
-    span {
-      // @include size(225%, $btn-width*2.25);
+  &:hover,
+  &:focus,
+  &:active {
+    &::before {
+      transform: translateY(-50%) rotateX(90deg);
+      opacity: 0;
+    }
+
+    &::after {
+      top: 50%;
+      transform: translateY(-50%) rotateX(0);
+      opacity: 1;
     }
   }
-
-  &:active {
-    background-color: $btn-color;
-  }
 }
+
+// .btn {
+//   @include font($title-font, 900, 13, $white-color);
+//   @include position(relative, $z-index: 1);
+//   display: inline-block;
+//   text-transform: uppercase;
+//   background-color: $accent-color;
+//   line-height: calculateRem(13);
+//   overflow-x: hidden;
+
+//   &::before {
+//     @include pseudo(block, attr(data-text));
+//     @include padding(null, true, 12, 23, 12, 23);
+//     line-height: calculateRem(13);
+//   }
+
+//   &::after {
+//     @include pseudo;
+//     @include basic-animation(.3s);
+//     @include position_center(absolute, true, true, -1);
+//     width: 100%;
+//     height: 100%;
+//     left: -50%;
+//     opacity: 0;
+//     background-color: $accent-color_darker;
+//   }
+
+//   &:hover,
+//   &:focus,
+//   &:active {
+//     &::after {
+//       left: 50%;
+//       opacity: 1;
+//     }
+//   }
+// }
