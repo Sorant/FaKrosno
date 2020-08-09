@@ -496,8 +496,8 @@ $border-radius: calculateRem(3);
   }
 }
 
-@mixin basic-animation($transition-time: 0.2s) {
-  transition: all $transition-time ease-in-out;
+@mixin basic-animation($transition-time: 0.2s, $animated-element: all, $timing: ease-in-out) {
+  transition: $animated-element $transition-time $timing;
 }
 
 @mixin hide-txt {

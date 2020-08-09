@@ -1,6 +1,7 @@
 .main-header {
-  @include basic-animation;
+  @include basic-animation(.6s, clip-path, linear);
   @include position(fixed, 0, 0, 0, null, 999);
+  background-color: transparent;
 
   .logo {
     @include position(absolute, 0, 0);
@@ -18,21 +19,71 @@
     }
   }
 
-  .container {
-    position: relative;
+  &__wrapper {
+    min-height: 11.111111vh; //120
+
+    .container,
+    .row {
+      min-height: 11.111111vh; //120
+    }
 
     .row {
       @include flex(null, center);
-      min-height: 11.111111vh; //120
     }
   }
 
-  &.fixed {
-    @extend %basic-shadow;
-    background-color: $white-color;
+  .container {
+    position: relative;
+  }
 
+  &__link {
+    @include basic-animation(.6s, all, ease-in-out);
+    @include font($title-font, 400, 13, $grey-color);
+    position: relative;
+
+    &::before {
+      @include pseudo;
+      @include basic-animation;
+      @include position(absolute, 10, 10, $z-index: -1);
+      width: 100%;
+      height: 100%;
+      transform: scale(0.9);
+      background-color: $accent-color;
+      opacity: 0;
+    }
+
+    &:hover,
+    &:active {
+      color: $white-color;
+      font-weight: 600;
+
+      &::before {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transform: scaleX(1.2) scaleY(2.1);
+        border-radius: calculateRem(2);
+        color: $white-color;
+      }
+    }
+
+    &--uppercase {
+      @extend .main-header__link;
+      text-transform: uppercase;
+    }
+  }
+
+  &--fixed {
+
+    .main-header__wrapper {
+      @extend %basic-shadow;
+      background-color: $white-color;
+    }
+
+    .main-header__wrapper,
+    .container,
     .row {
-      min-height: calculateVh(90);
+      @include boxSize($min-height: 80);
     }
 
     .main-header__search-block {
@@ -60,36 +111,45 @@
 
         &::after {
           @extend %fonts-aw;
-          @include basic-animation;
           @include pseudo(block, "\f107");
           @include padding($left: 5);
         }
       }
     }
 
-    &.active {
+    &.main-header__li--active {
       &>a {
+        color: $white-color;
         font-weight: 600;
-        color: $black-color;
+
+        &::before {
+          top: 0;
+          left: 0;
+          opacity: 1;
+          transform: scaleX(1.2) scaleY(2.1);
+          border-radius: calculateRem(2);
+          color: $white-color;
+        }
       }
     }
   }
 
   &__submenu {
-    @include basic-animation(0.4s);
     @include sildeUp;
-    @include position(absolute, -10, $z-index: 2);
+    @include fade('hide');
+    @include position(absolute, -10, -10, $z-index: 2);
+
+    width: 0;
 
     &-ul {
+      @include basic-animation(.6s, border-top);
       @include padding($top: 20);
       background-color: $white-color;
-      border-top: 4px solid $black-color;
       text-transform: uppercase;
     }
 
     li {
       @include basic-animation(0.3s);
-      @include padding(false, true, 8, 20, 8, 20);
       @include font($title-font, 400);
       white-space: nowrap;
       text-transform: uppercase;
@@ -99,23 +159,35 @@
       &:active {
         background-color: #efeeee;
       }
+
+      a {
+        @include padding(false, true, 8, 20, 8, 20);
+        display: block;
+        width: 100%;
+      }
     }
   }
 
-  &__li.active &__submenu {
+  &__li--active &__submenu {
     @include sildeDown;
+    @include fade('show');
     top: calculateRem(30);
+    width: auto;
+
+    &-ul {
+      border-top: 4px solid $black-color;
+    }
   }
 
   &__search-block {
     @include flex(null, center, nowrap);
     @include boxSize($height: 60);
-    @include margin($top: -15);
-    @include padding($bottom: 20);
+    @include padding($top: 5, $bottom: 5);
 
     input {
       @include basic-animation;
       @include padding($left: 30, $right: 10);
+      @include boxSize($max-height: 35);
       width: 100%;
       border: none;
       outline: none;
@@ -159,10 +231,9 @@
   }
 
   &__languages-block {
-    @include padding($bottom: 2);
-    border-bottom: 1px solid $grey-color;
 
     a {
+      @include padding($left: 5, $right: 5, $bottom: 2);
       @include font($title-font, 600);
     }
 
@@ -170,10 +241,6 @@
     &:focus,
     &:active {
       border-color: $white-color;
-
-      a {
-        @include padding($left: 5, $right: 5);
-      }
     }
   }
 
@@ -190,8 +257,8 @@
 
     li {
       @include basic-animation;
+      @include boxSize(22);
       display: block;
-      width: 80%;
       height: calculateRem(3);
       border-radius: calculateRem(5);
       background-color: $grey-color;
@@ -204,7 +271,7 @@
     &__circle {
       @include basic-animation(.8s);
       @include boxSize(42, 42);
-      @include position_center(absolute, true, true, -1);
+      @include position_center(absolute, true, true);
       border-radius: calculateRem(30);
 
       &::before {
@@ -216,7 +283,6 @@
         top: -50%;
         left: 50%;
         transition-delay: .7s;
-        background-color: $white-color;
       }
     }
 
@@ -226,6 +292,7 @@
         background-color: $accent-color_darker;
 
         &:first-of-type {
+          @include margin($top: 1);
           transform: rotate(45deg);
         }
 
@@ -252,9 +319,10 @@
     }
   }
 
-  &--active,
-  &--active.fixed {
-    box-shadow: 0 0 0 100vh $white-color;
+  &--active.main-header--fixed {
+    .main-header__wrapper {
+      box-shadow: none;
+    }
   }
 }
 

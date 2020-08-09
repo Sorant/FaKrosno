@@ -230,3 +230,12 @@ a {
     }
   }
 }
+
+.animated-icon {
+  @include basic-animation(.4s);
+  transition-delay: .2s;
+
+  &:hover {
+    transform: rotateX(360deg);
+  }
+}

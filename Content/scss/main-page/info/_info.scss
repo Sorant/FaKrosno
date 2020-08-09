@@ -3,7 +3,8 @@
 
   .container {
     position: relative;
-    height: calculateVh(540, 900);
+    // height: calculateVh(540, 900);
+    height: calculateRem(540);
   }
 
   &__wrapper {

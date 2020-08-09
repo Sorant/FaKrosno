@@ -10,15 +10,15 @@
     background-size: cover;
 
     &:first-of-type {
-      background-image: url(../img/main-page-frequently-searched-catalogs.jpg);
+      background-image: url(../../img/main-page-frequently-searched-catalogs.jpg);
     }
 
     &:nth-of-type(2) {
-      background-image: url(../img/main-page-frequently-searched-products.jpg);
+      background-image: url(../../img/main-page-frequently-searched-products.jpg);
     }
 
     &:nth-of-type(3) {
-      background-image: url(../img/main-page-frequently-searched-job-offers.jpg);
+      background-image: url(../../img/main-page-frequently-searched-job-offers.jpg);
     }
 
     &:hover,

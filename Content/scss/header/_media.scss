@@ -1,6 +1,11 @@
-@media (max-width: 575.98px) {
+@media (max-width: 575.98px) {}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
   .main-header {
-    background-color: $white-color;
+    @include basic-animation(.4s);
+    bottom: 0;
+    // clip-path: circle(70.40% at 50% -200px);
 
     .logo {
       position: initial;
@@ -12,14 +17,23 @@
     }
 
     &__content {
-      @include basic-animation(.8s);
+      @include basic-animation(.4s);
       @include sildeUp;
+      @include position(absolute, 0);
+    }
 
-      .main-header__search-block,
-      .main-header__ul li {
-        @include basic-animation;
-        @include sildeUp;
-        transform: translate(-50vw, -10vh) rotateX(90deg);
+    &__search-block,
+    &__ul li {
+      @include basic-animation;
+      @include sildeUp;
+      transform: translateY(-10vh) rotateX(90deg);
+    }
+
+    &__search-block {
+      height: calculateRem(60) !important;
+
+      a {
+        left: calculateRem(7);
       }
     }
 
@@ -29,11 +43,41 @@
 
     &__li {
       @include margin($top: 10, $right: 0);
+      @include padding($top: 5, $bottom: 5);
+      @include flex(center, center);
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+
+      .main-header__languages-block {
+        border: none;
+        width: 100%;
+      }
     }
 
+    &__submenu {
+      position: initial;
+      top: initial;
+      left: initial;
+      width: 100% !important;
+
+      &-ul {
+        @include margin($top: 20);
+      }
+    }
+
+    // &--fixed {
+    //   background-color: $white-color;
+    //   clip-path: inset(0% 0% 88% 0%);
+    // }
+
     &--active {
+      clip-path: circle(200% at 50% 0) !important;
+      background-color: $white-color;
 
       .main-header__content {
+        @include position(absolute, 120);
         @include sildeDown;
 
         .main-header__search-block,
@@ -47,11 +91,22 @@
   }
 }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) {}
-
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {}
 
 // Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {}
+@media (max-width: 1199.98px) {
+  .main-header {
+    .logo {
+      @include boxSize($height: 90, $max-width: 80);
+      width: 11%;
+      background-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+    }
+
+    &__ul {
+      @include padding($top: 10, $bottom: 10);
+    }
+  }
+}

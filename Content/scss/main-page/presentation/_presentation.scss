@@ -1,7 +1,7 @@
 .presentation {
   margin-top: calculateVh(120);
   min-height: calculateVh(600, 900);
-  background-image: url(../img/main-page-hero-photo.jpeg);
+  background-image: url(../../img/main-page-hero-photo.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -24,3 +24,5 @@
     }
   }
 }
+
+@import './_media';

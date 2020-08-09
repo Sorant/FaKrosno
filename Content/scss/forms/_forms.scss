@@ -44,41 +44,7 @@
 }
 
 .link {
-  @include basic-animation;
-  @include font($title-font, 400, 13, $grey-color);
-  position: relative;
 
-  &::before {
-    @include pseudo;
-    @include basic-animation;
-    @include position(absolute, 10, 10, $z-index: -1);
-    width: 100%;
-    height: 100%;
-    transform: scale(0.9);
-    background-color: $accent-color;
-    opacity: 0;
-  }
-
-  &:hover,
-  &:active,
-  &.active {
-    color: $white-color;
-    font-weight: 600;
-
-    &::before {
-      top: 0;
-      left: 0;
-      opacity: 1;
-      transform: scaleX(1.2) scaleY(2.1);
-      border-radius: calculateRem(2);
-      color: $white-color;
-    }
-  }
-}
-
-.link--uppercase {
-  @extend .link;
-  text-transform: uppercase;
 }
 
 .btn {
@@ -163,3 +129,5 @@
 //     }
 //   }
 // }
+
+@import '_media.scss';
