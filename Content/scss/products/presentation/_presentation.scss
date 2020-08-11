@@ -1,7 +1,8 @@
 .presentation {
   margin-top: calculateVh(120);
-  min-height: calculateVh(600, 900);
-  background-image: url(../../img/main-page-hero-photo.jpeg);
+  min-height: calculateVh(370, 900);
+
+  background-image: url(../../img/products/background-img.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -12,6 +13,7 @@
     font-family: $title-font;
 
     li {
+
       &:not(:first-of-type) {
         a {
           @include flex(null, center);
@@ -31,13 +33,16 @@
   }
 
   &__main {
-    margin-top: calculateVh(100, 900);
+    margin-top: calculateVh(45, 900);
+  }
 
-    &-link {
-      display: inline-block;
-      margin-top: calculateVh(50, 900);
+  &__img-wrapper {
+    @include margin($top: 50);
+    @include padding($bottom: 30);
+
+    img {
+      display: block;
+      width: 100%;
     }
   }
 }
-
-@import './_media';

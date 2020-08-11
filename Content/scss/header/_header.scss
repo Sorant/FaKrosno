@@ -4,6 +4,7 @@
   background-color: transparent;
 
   .logo {
+    @include basic-animation;
     @include position(absolute, 0, 0);
     @include boxSize($max-width: 116, $height: 151);
     @include padding(null, true, 24, 23, 16, 23);

@@ -1,0 +1,15 @@
+.search-or-configure {
+  @include margin($bottom: 100);
+
+  .btn {
+    @include padding(0);
+    @include margin($bottom: 7);
+    @include boxSize($max-width: 370);
+    width: 100%;
+    text-align: center;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}

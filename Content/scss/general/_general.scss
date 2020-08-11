@@ -239,3 +239,27 @@ a {
     transform: rotateX(360deg);
   }
 }
+
+.dark-text {
+  color: $black-color;
+}
+
+.accent-text {
+  color: $accent-color;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.extrabold {
+  font-weight: 900;
+}

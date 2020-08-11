@@ -1,0 +1,14 @@
+.info {
+
+  &__download-files-list {
+    .link {
+      @include margin($top: 15);
+      justify-content: space-between;
+    }
+  }
+
+  &__border-wrapper {
+    @include padding($bottom: 40);
+    border-bottom: 1px solid $accent-color;
+  }
+}

@@ -9,7 +9,7 @@
 
   &__wrapper {
     @include position_center(absolute, true, true);
-    background: url(../img/main-page-info-photo.jpg) 90% 50% no-repeat;
+    background: url(../../img/main-page-info-photo.jpg) 90% 50% no-repeat;
     background-size: cover;
     width: 100%;
     height: 110%;
