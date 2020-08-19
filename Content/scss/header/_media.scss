@@ -18,14 +18,14 @@
 
     &__content {
       @include basic-animation(.4s);
-      @include sildeUp;
+      @include slideUp;
       @include position(absolute, 0);
     }
 
     &__search-block,
     &__ul li {
       @include basic-animation;
-      @include sildeUp;
+      @include slideUp;
       transform: translateY(-10vh) rotateX(90deg);
     }
 
@@ -78,11 +78,11 @@
 
       .main-header__content {
         @include position(absolute, 120);
-        @include sildeDown;
+        @include slideDown;
 
         .main-header__search-block,
         .main-header__ul li {
-          @include sildeDown;
+          @include slideDown;
           transform: translate(0, 0) rotateX(0);
         }
       }

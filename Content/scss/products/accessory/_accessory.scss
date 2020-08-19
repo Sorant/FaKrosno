@@ -1,0 +1,39 @@
+.accessory {
+  @include padding($top: 80, $bottom: 80);
+
+  .title {
+    @include margin($top: 40, $bottom: 40);
+  }
+
+  &__dropdown-title {
+    @include basic-animation;
+    @include font($title-font, 600, 16);
+    @include padding(false, true, 10, 15, 10, 15);
+    @include flex(space-between, center);
+    color: $black-color;
+    cursor: pointer;
+    border-bottom: 1px solid $accent-color;
+
+    &:hover {
+      background-color: $grey-color-light;
+    }
+
+    &--active {
+      color: $accent-color;
+
+      .link-arrow-icon {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  &__dropdown-text {
+    @include basic-animation;
+    @include padding($top: 20, $left: 30);
+    @include dropdownUp;
+
+    &--open {
+      @include dropdownDown;
+    }
+  }
+}

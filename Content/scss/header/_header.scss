@@ -1,6 +1,6 @@
 .main-header {
   @include basic-animation(.6s, clip-path, linear);
-  @include position(fixed, 0, 0, 0, null, 999);
+  @include position(fixed, 0, 0, 0, null);
   background-color: transparent;
 
   .logo {
@@ -136,7 +136,7 @@
   }
 
   &__submenu {
-    @include sildeUp;
+    @include slideUp;
     @include fade('hide');
     @include position(absolute, -10, -10, $z-index: 2);
 
@@ -170,7 +170,7 @@
   }
 
   &__li--active &__submenu {
-    @include sildeDown;
+    @include slideDown;
     @include fade('show');
     top: calculateRem(30);
     width: auto;
@@ -288,6 +288,7 @@
     }
 
     &--active {
+
       li {
 
         background-color: $accent-color_darker;
@@ -318,6 +319,10 @@
         }
       }
     }
+  }
+
+  &--active {
+    z-index: 999;
   }
 
   &--active.main-header--fixed {

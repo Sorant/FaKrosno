@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../../bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="../../bootstrap-grid.min.css.map" />
+  <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Content/css/products/products.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header id="header-id" class="main-header">
+    <div class="main-header__wrapper">
+      <div class="container">
+        <div class="row">
+          <a href="index.html" class="logo col-3">
+            <img src="../../logo.svg" alt="Fa Krosno logo" />
+          </a>
+          <ul class="burger col-2 offset-7 offset-sm-6" onclick="mobileMenuHandler(this);">
+            <li></li>
+            <li></li>
+            <li></li>
+            <div class="burger__circle"></div>
+          </ul>
+          <div class="col-12 col-md-7 offset-md-5 col-lg-5 offset-lg-7 main-header__content">
+            <div id="search-block" class="main-header__search-block" onclick="openSearchMenu(this);">
+              <input type="text" onkeypress="openSearchKeyPress(event);" />
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+            <ul class="main-header__ul">
+              <li class="main-header__li" onclick="listMenuToggle(this);">
+                <a href="#" class="main-header__link main-header__link--uppercase" data-text="Produkty">Produkty</a>
+                <div class="main-header__submenu">
+                  <ul class="main-header__submenu-ul">
+                    <li><a href="./fa-rise.html">FA-RISE</a></li>
+                    <li><a href="./fa-hold.html">FA-HOLD</a></li>
+                    <li><a href="./fa-2STAGE.html">FA-2STAGE</a></li>
+                    <li><a href="./fa-block.html">FA-BLOCK</a></li>
+                    <li><a href="./fa-trac.html">FA-TRACK</a></li>
+                    <li><a href="./fa-inox.html">FA-INOX</a></li>
+                    <li><a href="./fa-abs.html">FA ABS</a></li>
+                    <li><a href="#">wyszukiwarka</a></li>
+                    <li><a href="#">konfigurator</a></li>
+                    <li>
+                      <a href="./accessory.html">mocowania i akcesoria</a>
+                    </li>
+                    <li><a href="#">katalogi</a></li>
+                    <li><a href="#">informacje techniczne</a></li>
+                    <li><a href="#">usługi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="main-header__li" onclick="listMenuToggle(this);">
+                <a href="#" class="main-header__link main-header__link--uppercase">O firmie</a>
+              </li>
+              <li class="main-header__li" onclick="listMenuToggle(this);">
+                <a href="#" class="main-header__link main-header__link--uppercase">Kariera</a>
+              </li>
+              <li class="main-header__li" onclick="listMenuToggle(this);">
+                <a href="#" class="main-header__link main-header__link--uppercase">Kontakt</a>
+              </li>
+              <li class="main-header__li">
+                <div class="main-header__languages-block">
+                  <a href="#" class="main-header__link main-header__link--uppercase">Pl</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="presentation animated-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-11 offset-sm-1">
+          <ul class="presentation__crumbs">
+            <li>
+              <a href="#">
+                <h5>strona główna</h5>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h5>produkty</h5>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h5>MOCOWANIA I AKCESORIA</h5>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-9 offset-md-1 animated-container__block animated-container__block--left">
+          <div class="presentation__main">
+            <h1 class="main-title">MOCOWANIA I AKCESORIA</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row presentation__img-wrapper">
+        <div class="col-12 col-sm-11 offset-sm-1">
+          <img src="../../Content/img/products/fa-rise.png" alt="Spreżyna Fa-Rise" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="accessory">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-5 offset-sm-1">
+          <p class="text">
+            FA-Akcesoria zapewniają ochronę, bezpieczeństwo, dodatkowe
+            funkcje, a także umożliwiają wiele opcji montażu naszych produktów
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-11 offset-sm-1">
+          <h2 class="title title--accent-color">AKCESORIA</h2>
+          <ul class="accessory__dropdown-ul">
+            <li class="accessory__dropdown-li">
+              <p class="accessory__dropdown-title link">
+                SWORZEŃ KULOWY
+                <span class="link-arrow-wrapper"><i class="link-arrow-icon fas fa-chevron-down"></i></span>
+              </p>
+              <p class="accessory__dropdown-text text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure nderit in voluptate velit esse dffcillum dolore.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="../../Content/js/index.js"></script>
+<!-- <script>
+  const titles = document.querySelectorAll('.accessory__dropdown-title');
+  titles.forEach(title => {
+    title.addEventListener('click', (e) => {
+      title.nextElementSibling.classList.toggle('accessory__dropdown-text--open');
+      title.classList.toggle('accessory__dropdown-title--active');
+    })
+  });
+</script> -->
+
+</html>

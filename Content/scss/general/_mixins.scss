@@ -431,18 +431,29 @@ $border-radius: calculateRem(3);
   }
 }
 
-@mixin sildeUp($z-index: null) {
+@mixin slideUp($z-index: auto) {
   z-index: $z-index;
   height: 0;
   overflow: hidden;
   transform: rotateX(90deg);
 }
 
-@mixin sildeDown($z-index: null) {
+@mixin slideDown($z-index: auto) {
   z-index: $z-index;
   height: 100%;
   overflow: initial;
   transform: rotateX(0deg);
+}
+
+@mixin dropdownUp {
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+@mixin dropdownDown {
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 @mixin fade($type, $animation-duration: .2s, $animation-delay: initial) {
